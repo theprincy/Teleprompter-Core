@@ -123,9 +123,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
         initCSS();
 
         // Locate and set editor
-        console.log("Editor window:");
-        console.log(window.opener);
-        console.log(window);
         if (window.opener)
             editor = window.opener;
         else if (window.top)
@@ -211,10 +208,10 @@ https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/onversionchange
 
         // Wait a moment to prevent possible asynchronic CSS issues.
         window.setTimeout( function() {
+            setScreenHeight();
+            setPromptHeight();
             // If flipped vertically, set start at inverted top.
             if (flipV) {
-                setScreenHeight();
-                setPromptHeight();
                 animate(0,-promptHeight+screenHeight);
             }
 
